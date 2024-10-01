@@ -1,7 +1,13 @@
 {
-  "files": [],
-  "references": [
-    { "path": "./tsconfig.app.json" },
-    { "path": "./tsconfig.node.json" }
-  ]
+    "files": [],
+    "references": [
+        { "path": "./tsconfig.app.json" },
+        { "path": "./tsconfig.node.json" }
+    ],
+    "compilerOptions": {
+        "types": ["@emotion/react/types/css-prop"] // 追加
+
+        // "jsx": "react-jsx",
+        // "jsxImportSource": "@emotion/react"
+    }
 }
