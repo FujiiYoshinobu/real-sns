@@ -1,4 +1,3 @@
-/** @jsxImportSource @emotion/react */
 import { css } from "@emotion/react";
 import {
     Bookmark,
@@ -9,48 +8,42 @@ import {
     Search,
     Settings,
 } from "@mui/icons-material";
+import SidebarItem from "./SidebarItem";
 
 export default function Sidebar() {
     return (
         <div css={styles.sidebarStyle}>
             <div css={styles.sidebarWrapperStyle}>
-                <ul css={styles.sidebarListStyle}>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Home css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>
-                            ホーム
-                        </span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Search css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>検索</span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Notifications css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>通知</span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <MessageRounded css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>
-                            メッセージ
-                        </span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Bookmark css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>
-                            ブックマーク
-                        </span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Person css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>
-                            プロフィール
-                        </span>
-                    </li>
-                    <li css={styles.sidebarListItemStyle}>
-                        <Settings css={styles.sidebarIconStyle} />
-                        <span css={styles.sidebarListItemTextStyle}>設定</span>
-                    </li>
+                <ul className="sidebarList">
+                    <SidebarItem
+                        icon={<Home css={styles.sidebarIconStyle} />}
+                        label={"ホーム"}
+                    />
+                    <SidebarItem
+                        icon={<Search css={styles.sidebarIconStyle} />}
+                        label={"検索"}
+                    />
+                    <SidebarItem
+                        icon={<Notifications css={styles.sidebarIconStyle} />}
+                        label={"通知"}
+                    />
+                    <SidebarItem
+                        icon={<MessageRounded css={styles.sidebarIconStyle} />}
+                        label={"メッセージ"}
+                    />
+                    <SidebarItem
+                        icon={<Bookmark css={styles.sidebarIconStyle} />}
+                        label={"ブックマーク"}
+                    />
+
+                    <SidebarItem
+                        icon={<Person css={styles.sidebarIconStyle} />}
+                        label={"プロフィール"}
+                    />
+                    <SidebarItem
+                        icon={<Settings css={styles.sidebarIconStyle} />}
+                        label={"設定"}
+                    />
                 </ul>
                 <hr css={styles.sidebarHrStyle} />
                 <ul css={styles.sidebarFriendListStyle}>
@@ -93,23 +86,24 @@ const styles = {
     }),
     sidebarWrapperStyle: css({
         padding: "20px",
+        "ul.sidebarList": {
+            padding: 0,
+            margin: 0,
+            listStyle: "none",
+            li: {
+                display: "flex",
+                alignItems: "center",
+                marginBottom: "10px",
+                padding: "4px 6px",
+                cursor: "pointer",
+                boxShadow: " 3px 7px 18px -7px #7385c9",
+                borderRadius: "10px",
+                transition: "all 0.3s",
+                ":hover": { boxShadow: "none", transform: "translateY(5px)" },
+            },
+        },
     }),
-    sidebarListStyle: css({
-        padding: 0,
-        margin: 0,
-        listStyle: "none",
-    }),
-    sidebarListItemStyle: css({
-        display: "flex",
-        alignItems: "center",
-        marginBottom: "10px",
-        padding: "4px 6px",
-        cursor: "pointer",
-        boxShadow: " 3px 7px 18px -7px #7385c9",
-        borderRadius: "10px",
-        transition: "all 0.3s",
-        ":hover": { boxShadow: "none", transform: "translateY(5px)" },
-    }),
+
     sidebarIconStyle: css({
         fontSize: "35px",
         marginRight: "10px",

@@ -5,9 +5,24 @@
         { "path": "./tsconfig.node.json" }
     ],
     "compilerOptions": {
-        "types": ["@emotion/react/types/css-prop"] // 追加
+        "jsxImportSource": "@emotion/react",
+        "target": "ES2020",
+        "useDefineForClassFields": true,
+        "lib": ["ES2020", "DOM", "DOM.Iterable"],
+        "module": "ESNext",
+        "skipLibCheck": true,
+        /* Bundler mode */
+        "moduleResolution": "bundler",
+        "allowImportingTsExtensions": true,
+        "resolveJsonModule": true,
+        "isolatedModules": true,
+        "noEmit": true,
+        "jsx": "react-jsx",
 
-        // "jsx": "react-jsx",
-        // "jsxImportSource": "@emotion/react"
+        /* Linting */
+        "strict": true,
+        "noUnusedParameters": false,
+        "noFallthroughCasesInSwitch": true,
+        "noUnusedLocals": false
     }
 }
