@@ -9,6 +9,8 @@ import {
     Settings,
 } from "@mui/icons-material";
 import SidebarItem from "./SidebarItem";
+import CloseFriend from "./CloseFriend";
+import { Users } from "../../dummyData";
 
 export default function Sidebar() {
     return (
@@ -47,32 +49,9 @@ export default function Sidebar() {
                 </ul>
                 <hr css={styles.sidebarHrStyle} />
                 <ul css={styles.sidebarFriendListStyle}>
-                    <li css={styles.sidebarFriendStyle}>
-                        <img
-                            src="/assets/person/2.jpeg"
-                            alt=""
-                            css={styles.sidebarFriendImgStyle}
-                        />
-                        <span css={styles.sidebarFriendNameStyle}>
-                            ShinCode
-                        </span>
-                    </li>
-                    <li css={styles.sidebarFriendStyle}>
-                        <img
-                            src="/assets/person/3.jpeg"
-                            alt=""
-                            css={styles.sidebarFriendImgStyle}
-                        />
-                        <span css={styles.sidebarFriendNameStyle}>Tanaka</span>
-                    </li>
-                    <li css={styles.sidebarFriendStyle}>
-                        <img
-                            src="/assets/person/4.jpeg"
-                            alt=""
-                            css={styles.sidebarFriendImgStyle}
-                        />
-                        <span css={styles.sidebarFriendNameStyle}>Satou</span>
-                    </li>
+                    {Users.map((user) => (
+                        <CloseFriend user={user} key={user.id} />
+                    ))}
                 </ul>
             </div>
         </div>
@@ -119,22 +98,5 @@ const styles = {
         padding: 0,
         margin: 0,
         listStyle: "none",
-    }),
-    sidebarFriendStyle: css({
-        display: "flex",
-        alignItems: "center",
-        marginBottom: "15px",
-    }),
-    sidebarFriendImgStyle: css({
-        width: "32px",
-        height: "32px",
-        objectFit: "cover",
-        borderRadius: "50%",
-        marginLeft: "10px",
-    }),
-    sidebarFriendNameStyle: css({
-        display: "flex",
-        alignItems: "center",
-        marginBottom: "15px",
     }),
 };

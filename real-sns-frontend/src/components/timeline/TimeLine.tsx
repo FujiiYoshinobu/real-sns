@@ -2,6 +2,7 @@
 import { css } from "@emotion/react";
 import Share from "../share/Share";
 import Post from "../post/Post";
+import { Posts } from "../../dummyData";
 
 export default function TimeLine() {
     return (
@@ -9,7 +10,9 @@ export default function TimeLine() {
             <div css={styles.timelineWrapper}>
                 <Share />
             </div>
-            <Post />
+            {Posts.map((post) => (
+                <Post post={post} key={post.id} />
+            ))}
         </div>
     );
 }
