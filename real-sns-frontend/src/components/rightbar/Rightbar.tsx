@@ -5,7 +5,7 @@ import { Box } from "@mui/material";
 import Following from "./Following";
 
 type Props = {
-    profile: boolean;
+    profile?: boolean;
 };
 
 export default function Rightbar(props: Props) {

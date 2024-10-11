@@ -3,6 +3,7 @@ import Sidebar from "../../components/sidebar/Sidebar";
 import TimeLine from "../../components/timeline/TimeLine";
 import Rightbar from "../../components/rightbar/Rightbar";
 import { Box, css } from "@mui/system";
+import { Typography } from "@mui/material";
 
 export default function Profile() {
     return (
@@ -34,16 +35,20 @@ export default function Profile() {
                                 justifyContent: "center",
                             }}
                         >
-                            <Box
-                                component="h4"
+                            {/* ! */}
+                            <Typography
+                                variant="h4"
                                 sx={{
                                     fontSize: "24px",
                                     margin: "8px",
                                 }}
                             >
                                 Shin Code
-                            </Box>
-                            <Box component="span">Udemy講師をしています</Box>
+                            </Typography>
+                            {/* ! */}
+                            <Typography component="span">
+                                Udemy講師をしています
+                            </Typography>
                         </Box>
                         <Box sx={{ display: "flex" }}>
                             <TimeLine />
