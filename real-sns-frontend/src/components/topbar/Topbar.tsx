@@ -2,12 +2,15 @@
 import { css } from "@emotion/react";
 
 import { Chat, Notifications, Search } from "@mui/icons-material";
+import { Link } from "react-router-dom";
 
 export default function Topbar() {
     return (
         <div css={styles.topbarContainerStyle}>
             <div css={styles.topbarLeftStyle}>
-                <span css={styles.logoStyle}>Real SNS</span>
+                <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
+                    <span css={styles.logoStyle}>Real SNS</span>
+                </Link>
             </div>
             <div css={styles.topbarCenterStyle}>
                 <div css={styles.searchbarStyle}>

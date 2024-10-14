@@ -4,8 +4,12 @@ import TimeLine from "../../components/timeline/TimeLine";
 import Rightbar from "../../components/rightbar/Rightbar";
 import { Box, css } from "@mui/system";
 import { Typography } from "@mui/material";
+// import dotenv from 'dotenv';
+// dotenv.config();
 
 export default function Profile() {
+    // const PUBLIC_FOLDER = process.env.REACT_APP_PUBLIC_FOLDER
+    const PUBLIC_FOLDER = 'http://localhost:5173/public/assets'
     return (
         <>
             <Topbar />
@@ -16,13 +20,13 @@ export default function Profile() {
                         <Box sx={{ height: "320px", position: "relative" }}>
                             <Box
                                 component="img"
-                                src="assets/post/3.jpeg"
+                                src={PUBLIC_FOLDER + "/post/3.jpeg"}
                                 alt=""
                                 sx={styles.coverImageStyle}
                             />
                             <Box
                                 component="img"
-                                src="assets/person/1.jpeg"
+                                src={PUBLIC_FOLDER + "/person/1.jpeg"}
                                 alt=""
                                 sx={styles.userIconImageStyle}
                             />

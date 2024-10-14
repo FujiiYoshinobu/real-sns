@@ -11,16 +11,19 @@ import {
 import SidebarItem from "./SidebarItem";
 import CloseFriend from "./CloseFriend";
 import { Users } from "../../dummyData";
+import { Link } from "react-router-dom";
 
 export default function Sidebar() {
     return (
         <div css={styles.sidebarStyle}>
             <div css={styles.sidebarWrapperStyle}>
                 <ul className="sidebarList">
-                    <SidebarItem
-                        icon={<Home css={styles.sidebarIconStyle} />}
-                        label={"ホーム"}
-                    />
+                    <Link to='/' style={{ textDecoration: 'none', color: 'black' }}>
+                        <SidebarItem
+                            icon={<Home css={styles.sidebarIconStyle} />}
+                            label={"ホーム"}
+                        />
+                    </Link>
                     <SidebarItem
                         icon={<Search css={styles.sidebarIconStyle} />}
                         label={"検索"}
@@ -37,11 +40,12 @@ export default function Sidebar() {
                         icon={<Bookmark css={styles.sidebarIconStyle} />}
                         label={"ブックマーク"}
                     />
-
-                    <SidebarItem
-                        icon={<Person css={styles.sidebarIconStyle} />}
-                        label={"プロフィール"}
-                    />
+                    <Link to='/profile/sincode' style={{ textDecoration: 'none', color: 'black' }}>
+                        <SidebarItem
+                            icon={<Person css={styles.sidebarIconStyle} />}
+                            label={"プロフィール"}
+                        />
+                    </Link>
                     <SidebarItem
                         icon={<Settings css={styles.sidebarIconStyle} />}
                         label={"設定"}
