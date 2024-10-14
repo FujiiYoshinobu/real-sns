@@ -52,8 +52,13 @@ export default function Login() {
                         justifyContent: "center",
                     }}
                 >
-                    <form css={styles.loginBoxStyle}>
-                        <Typography component={"span"}>
+                    <Box css={styles.loginBoxStyle}>
+                        <Typography component={"span"} sx={{
+                            textAlign: 'center',
+                            fontWeight: '550',
+                            fontSize: '16px',
+                            marginBottom: '16px'
+                        }}>
                             ログインはこちら
                         </Typography>
                         <input
@@ -66,12 +71,37 @@ export default function Login() {
                             type="text"
                             placeholder="パスワード"
                         ></input>
-                        <Button>ログイン</Button>
-                        <Typography component={"span"}>
+                        <Button sx={{
+                            height: '50px',
+                            borderRadius: '10px',
+                            border: 'none',
+                            backgroundColor: '#41428b',
+                            color: 'white',
+                            fontSize: '20px',
+                            fontWeight: '500',
+                            cursor: 'pinter'
+                        }}>ログイン</Button>
+                        <Typography component={"span"} sx={{
+                            textAlign: 'center',
+                            color: '#41428b ',
+                            margin: '15px 0'
+                        }}>
                             パスワードを忘れた方へ
                         </Typography>
-                        <Button>アカウント作成</Button>
-                    </form>
+                        <Button sx={{
+                            width: '70%',
+                            alignSelf: 'center',
+                            height: '50px',
+                            borderRadius: '10px',
+                            border: 'none',
+                            backgroundColor: '#3c8d50',
+                            color: 'white',
+                            fontSize: '20px',
+                            fontWeight: '500',
+                            cursor: 'pinter',
+
+                        }}>アカウント作成</Button>
+                    </Box>
                 </Box>
             </Box>
         </Box>
@@ -81,12 +111,13 @@ export default function Login() {
 const styles = {
     loginBoxStyle: css({
         height: "300px",
-        paddig: "20px",
+        padding: "20px",
         background: "white",
         borderRadius: "10px",
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
+        boxShadow: " 3px 7px 13px -10px #7385c9"
     }),
     loginInputStyle: css({
         height: "50px",
@@ -94,8 +125,9 @@ const styles = {
         border: "1px solid gray",
         fontSize: "18px",
         paddingLeft: "20px",
-        // ":focus": {
-        //     outline: "none",
-        // },
+        marginBottom: '8px',
+        ":focus": {
+            outline: "none",
+        },
     }),
 };
