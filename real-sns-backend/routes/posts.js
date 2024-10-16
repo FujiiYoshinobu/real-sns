@@ -2,6 +2,18 @@ const router = require("express").Router();
 const Post = require("../models/Post");
 const User = require("../models/User");
 
+const express = require("express");
+const cors = require("cors");
+const app = express();
+// CORSを有効にする
+// app.use(
+//     cors({
+//         origin: "http://localhost:5173", // localhost:5173からのリクエストを許可
+//     })
+// );
+// CORSを全てのオリジンに対して有効にする（開発時のため、必要に応じて特定のオリジンに制限可能）
+app.use(cors());
+
 // 投稿を作成する
 router.post("/", async (req, res) => {
     const newPost = new Post(req.body);
@@ -87,9 +99,9 @@ router.put("/:id/like", async (req, res) => {
 });
 
 // タイムラインの投稿を取得
-router.get("/timeline/all", async (req, res) => {
+router.get("/timeline/:userId", async (req, res) => {
     try {
-        const currentUser = await User.findById(req.body.userId);
+        const currentUser = await User.findById(req.params.userId);
         const userPosts = await Post.find({ userId: currentUser._id });
         // 自分がフォローしている友達の投稿内容を全て取得する
         const friendPosts = await Promise.all(

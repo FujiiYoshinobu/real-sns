@@ -6,11 +6,12 @@ type Props = {
 };
 
 export default function CloseFriend(props: Props) {
+    const PUBLIC_FOLDER = 'http://localhost:5173/public/assets'
     const { user } = props;
     return (
         <li css={styles.sidebarFriendStyle}>
             <img
-                src={user.profilePicture}
+                src={PUBLIC_FOLDER + user.profilePicture}
                 alt=""
                 css={styles.sidebarFriendImgStyle}
             />

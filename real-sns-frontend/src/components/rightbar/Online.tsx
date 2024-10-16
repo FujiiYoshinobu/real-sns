@@ -6,6 +6,7 @@ type Props = {
 };
 
 export default function Online(props: Props) {
+    const PUBLIC_FOLDER = 'http://localhost:5173/public/assets'
     const { user } = props;
     return (
         <li className="rightbarFriend" css={styles.rightbarFriendStyle}>
@@ -13,7 +14,7 @@ export default function Online(props: Props) {
                 className="profileImgContainer"
                 css={styles.ProfileImgContainerStyle}
             >
-                <img src={user.profilePicture} alt="" />
+                <img src={PUBLIC_FOLDER + user.profilePicture} alt="" />
                 <span
                     className="rightbarOnline"
                     css={styles.rightbarOnlineStyle}

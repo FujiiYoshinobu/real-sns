@@ -1,33 +1,45 @@
 import { css } from "@emotion/react";
 import { MoreVert } from "@mui/icons-material";
 import { PostType } from "../../types/types";
-import { Users } from "../../dummyData";
-import { useState } from "react";
+// import { Users } from "../../dummyData";
+import { useEffect, useState } from "react";
+import axios from "axios";
 
 type Props = {
     post: PostType;
 };
 
 export default function Post(props: Props) {
+    const PUBLIC_FOLDER = 'http://localhost:5173/public/assets'
     const { post } = props;
     const [like, setLike] = useState(post.like);
     const [isLiked, setIsLiked] = useState(false);
+    const [user, setUser] = useState({});
+
+    useEffect(() => {
+        const fetchUser = async () => {
+            const response = await axios.get(`http://localhost:5000/api/${post.userId}`)
+            setUser(response.data)
+        }
+        fetchUser()
+    }, [])
+
     const handleLike = () => {
         setLike(isLiked ? like - 1 : like + 1);
         setIsLiked(!isLiked);
     };
-    const user = Users.filter((user) => user.id === post.id);
+
     return (
         <div css={styles.postStyle}>
             <div css={styles.postWrapperStyle}>
                 <div css={styles.postTopStyle}>
                     <div css={styles.postTopLeftStyle}>
                         <img
-                            src={user[0].profilePicture}
+                            src={user.profilePicture}
                             css={styles.postProfileImgStyle}
                         />
                         <span css={styles.postUsernameStyle}>
-                            {user[0].username}
+                            {user.username}
                         </span>
                         <span css={styles.postDateStyle}>{post.date}</span>
                     </div>
@@ -37,11 +49,11 @@ export default function Post(props: Props) {
                 </div>
                 <div css={styles.postCenterStyle}></div>
                 <span css={styles.postText}>{post.desc}</span>
-                <img src={post.photo} alt="" css={styles.postImgStyle} />
+                <img src={PUBLIC_FOLDER + post.photo} alt="" css={styles.postImgStyle} />
                 <div css={styles.postBottomStyle}>
                     <div css={styles.postBottomLeftStyle}>
                         <img
-                            src="./assets/heart.png"
+                            src={PUBLIC_FOLDER + "/heart.png"}
                             alt=""
                             css={styles.likeIconStyle}
                             onClick={() => handleLike()}

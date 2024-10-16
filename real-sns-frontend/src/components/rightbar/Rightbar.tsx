@@ -9,6 +9,7 @@ type Props = {
 };
 
 export default function Rightbar(props: Props) {
+    const PUBLIC_FOLDER = 'http://localhost:5173/public/assets'
     const { profile } = props;
     const HomeRightbar = () => {
         return (
@@ -111,23 +112,23 @@ export default function Rightbar(props: Props) {
                         }}
                     >
                         <Following
-                            src="../../assets/person/1.jpeg"
+                            src={PUBLIC_FOLDER + "/person/1.jpeg"}
                             username="Shin Code"
                         />
                         <Following
-                            src="../../assets/person/2.jpeg"
+                            src={PUBLIC_FOLDER + "/person/2.jpeg"}
                             username="Yamaki"
                         />
                         <Following
-                            src="../../assets/person/3.jpeg"
+                            src={PUBLIC_FOLDER + "/person/3.jpeg"}
                             username="Koga"
                         />
                         <Following
-                            src="../../assets/person/4.jpeg"
+                            src={PUBLIC_FOLDER + "/person/4.jpeg"}
                             username="Matukubo"
                         />
                         <Following
-                            src="../../assets/person/5.jpeg"
+                            src={PUBLIC_FOLDER + "/person/5.jpeg"}
                             username="Kikukawa"
                         />
                     </Box>
